@@ -1,0 +1,3 @@
+sprites: https://www.kenney.nl/assets/bit-pack
+font: https://fonts.google.com/specimen/Squada+One
+font: https://fonts.google.com/specimen/ZCOOL+KuaiLe

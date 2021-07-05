@@ -1,0 +1,166 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "ChessEntity",
+"class": "Bishop",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Chess/Bishop.gd"
+}, {
+"base": "NPEntity",
+"class": "ChessEntity",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Chess/ChessEntity.gd"
+}, {
+"base": "Area2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Entity.gd"
+}, {
+"base": "Area2D",
+"class": "EventButton",
+"language": "GDScript",
+"path": "res://Scripts/Entities/EventButton.gd"
+}, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://git_api.gdns"
+}, {
+"base": "Area2D",
+"class": "Goal",
+"language": "GDScript",
+"path": "res://Scripts/Level/Mechanics/Goal.gd"
+}, {
+"base": "ChessEntity",
+"class": "King",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Chess/King.gd"
+}, {
+"base": "ChessEntity",
+"class": "Knight",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Chess/Knight.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Scripts/Level/Level.gd"
+}, {
+"base": "Entity",
+"class": "NPEntity",
+"language": "GDScript",
+"path": "res://Scripts/Entities/NPEntity.gd"
+}, {
+"base": "ChessEntity",
+"class": "Pawn",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Chess/Pawn.gd"
+}, {
+"base": "Entity",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Player/Player.gd"
+}, {
+"base": "Camera2D",
+"class": "PlayerCamera",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Player/PlayerCamera.gd"
+}, {
+"base": "ChessEntity",
+"class": "Queen",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Chess/Queen.gd"
+}, {
+"base": "ChessEntity",
+"class": "Rook",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Chess/Rook.gd"
+}, {
+"base": "Node",
+"class": "Swipe",
+"language": "GDScript",
+"path": "res://Scripts/Touch/Swipe.gd"
+} ]
+_global_script_class_icons={
+"Bishop": "",
+"ChessEntity": "",
+"Entity": "",
+"EventButton": "",
+"GitAPI": "",
+"Goal": "",
+"King": "",
+"Knight": "",
+"Level": "",
+"NPEntity": "",
+"Pawn": "",
+"Player": "",
+"PlayerCamera": "",
+"Queen": "",
+"Rook": "",
+"Swipe": ""
+}
+
+[application]
+
+config/name="Rat in the Vents"
+run/main_scene="res://Scenes/MainMenu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+GameEvents="*res://Scripts/Misc/GameEvents.gd"
+LoadSave="*res://Scripts/Misc/LoadSave.gd"
+LevelNames="*res://Scripts/Misc/LevelNames.gd"
+GameGlobals="*res://Scripts/Misc/GameGlobals.gd"
+
+[display]
+
+window/size/width=640
+window/size/height=640
+window/handheld/orientation="sensor"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/Recorder/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://git_api.gdnlib" ]
+
+[global]
+
+window=false
+
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="goal"
+2d_physics/layer_3="entity"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_environment="res://default_env.tres"

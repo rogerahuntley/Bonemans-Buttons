@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Fonts/Main_Button.tres" type="DynamicFont" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Button
+
+export(String) var level_name = \"w0l1\"
+const game_path = \"res://Scenes/GameHandler.tscn\"
+var game_scene = preload(game_path).instance()
+
+func _pressed():
+	get_tree().get_root().add_child(game_scene)
+	GameEvents.emit_signal(\"level_changed\",level_name)
+	get_node(\"/root/LevelSelect\").queue_free()
+"
+
+[node name="LevelSelectButton" type="Button"]
+margin_right = 286.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level Select"
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

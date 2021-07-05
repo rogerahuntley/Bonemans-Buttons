@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/Main_Button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/Logo.tres" type="DynamicFont" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Button
+
+const level_select_path = \"res://Scenes/LevelSelect.tscn\"
+var level_select_scene = preload(level_select_path).instance()
+
+func _pressed():
+	get_tree().get_root().add_child(level_select_scene)
+	get_node(\"/root/MainMenu\").queue_free()
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+const game_path = \"res://Scenes/GameHandler.tscn\"
+var game_scene = preload(game_path).instance()
+
+func _pressed():
+	var level_name = LoadSave.load_data(\"last_level_loaded\")
+	get_tree().get_root().add_child(game_scene)
+	GameEvents.emit_signal(\"level_changed\",level_name)
+	get_node(\"/root/MainMenu\").queue_free()
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Button
+
+func _pressed():
+	get_tree().quit()
+"
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 142.0
+margin_top = 142.0
+margin_right = 498.0
+margin_bottom = 498.0
+custom_constants/separation = 45
+
+[node name="Logo" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 356.0
+margin_bottom = 125.0
+custom_fonts/font = ExtResource( 2 )
+text = "Rat
+in the Vents"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_left = 35.0
+margin_top = 170.0
+margin_right = 321.0
+margin_bottom = 356.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 15
+
+[node name="LevelSelect" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 286.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level Select"
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 67.0
+margin_right = 286.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 1 )
+text = "Continue"
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 134.0
+margin_right = 286.0
+margin_bottom = 186.0
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+script = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
