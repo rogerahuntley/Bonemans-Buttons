@@ -5,7 +5,7 @@
 [ext_resource path="res://Nodes/Entities/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/Entities/Misc/Barrel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/1bit.tres" type="TileSet" id=5]
-[ext_resource path="res://TriggerTree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nodes/Mechanics/TriggerTree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventButtonHold.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventLight.tscn" type="PackedScene" id=8]
 

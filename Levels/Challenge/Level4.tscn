@@ -4,13 +4,14 @@
 [ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=2]
 [ext_resource path="res://Nodes/Entities/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventGoal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://TriggerTree.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Mechanics/TriggerTree.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nodes/Entities/Chess/Pawn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventLight.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventLever.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventButtonHold.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Nodes/Entities/Misc/Barrel.tscn" type="PackedScene" id=11]
+
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )

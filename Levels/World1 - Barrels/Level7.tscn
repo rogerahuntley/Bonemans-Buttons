@@ -7,7 +7,7 @@
 [ext_resource path="res://Nodes/Entities/Misc/Barrel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventButtonHold.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventLight.tscn" type="PackedScene" id=7]
-[ext_resource path="res://TriggerTree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/Mechanics/TriggerTree.tscn" type="PackedScene" id=8]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
