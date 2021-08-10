@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/favicon.png-06dc2bff51249c2f11c8340b581bdbcc.stex"
+path="res://.import/RatintheVents.png-98f9d12a9b64d80856d6a06a35c3e27b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/html5/favicon.png"
-dest_files=[ "res://.import/favicon.png-06dc2bff51249c2f11c8340b581bdbcc.stex" ]
+source_file="res://export/html/RatintheVents.png"
+dest_files=[ "res://.import/RatintheVents.png-98f9d12a9b64d80856d6a06a35c3e27b.stex" ]
 
 [params]
 
