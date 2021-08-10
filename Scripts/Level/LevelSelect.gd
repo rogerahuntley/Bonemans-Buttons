@@ -12,11 +12,6 @@ onready var levels_parent = $Levels/VBoxPanel/VBoxContainer
 onready var levels_label = $Levels/LevelLabel
 onready var levels_back = $Levels/Back
 
-export(Array, String) var level_groups = [
-	"World 1",
-	"World 2"
-]
-
 export(NodePath) onready var vbox_node = get_node(vbox_node) as VBoxContainer
 
 func _ready():
@@ -28,7 +23,7 @@ func create_group_buttons():
 		groups_parent.remove_child(child)
 	
 	#create new ones
-	for group in level_groups:
+	for group in LevelNames.level_groups:
 		if LevelNames.get_group(group).size() > 0:
 			var button = group_button_node.instance()
 			groups_parent.add_child(button)
