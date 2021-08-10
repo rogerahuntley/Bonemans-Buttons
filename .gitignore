@@ -6,8 +6,14 @@ export_presets.cfg
 # android build
 android/
 
-#exports
+# exports
 export/
+
+# addons
+addons/
+
+# git
+bin/
 
 # Imported translations (automatically generated from CSV files)
 *.translation
