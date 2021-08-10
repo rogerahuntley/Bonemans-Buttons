@@ -5,7 +5,7 @@ script/source = "extends Panel
 
 export(int) var padding = 5
 
-onready var vbox: VBoxContainer = $VBoxContainer
+onready var vbox: Container = $VBoxContainer
 
 func _ready():
 	set_new_size();

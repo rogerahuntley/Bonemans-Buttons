@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Fonts/Main_Button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/ZCOOL_KuaiLe/ZCOOLKuaiLe-Regular.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Button
@@ -14,9 +18,19 @@ func _pressed():
 "
 
 [node name="LevelSelectButton" type="Button"]
-margin_right = 286.0
-margin_bottom = 52.0
-custom_fonts/font = ExtResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -97.0
+margin_top = -18.5
+margin_right = 97.0
+margin_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
 text = "Level Select"
 script = SubResource( 1 )
 __meta__ = {
