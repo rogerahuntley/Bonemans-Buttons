@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Fonts/Main_Button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Fonts/Logo.tres" type="DynamicFont" id=2]
@@ -6,8 +6,15 @@
 [ext_resource path="res://Assets/Custom/Logo.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Custom/button.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Custom/button_pressed.png" type="Texture" id=6]
+[ext_resource path="res://Assets/shaders/outline.shader" type="Shader" id=7]
+[ext_resource path="res://Nodes/UI/BackgroundRect.tscn" type="PackedScene" id=8]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 7 )
+shader_param/outline_width = 4.0
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="GDScript" id=2]
 script/source = "extends TextureButton
 
 const level_select_path = \"res://Scenes/LevelSelect.tscn\"
@@ -16,7 +23,12 @@ func _pressed():
 	get_tree().change_scene(level_select_path)
 "
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 7 )
+shader_param/outline_width = 4.0
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="GDScript" id=4]
 script/source = "extends TextureButton
 
 const game_path = \"res://Scenes/GameHandler.tscn\"
@@ -25,23 +37,23 @@ func _pressed():
 	get_tree().change_scene(game_path)
 "
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=5]
 script/source = "extends TextureButton
 
 func _pressed():
 	get_tree().quit()
 "
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=6]
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=7]
 script/source = "extends Button
 
 func _pressed():
 	get_tree().quit()
 "
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=8]
 script/source = "extends Button
 
 func _pressed():
@@ -55,28 +67,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-size_flags_horizontal = 15
-size_flags_vertical = 15
-color = Color( 0.27451, 0.172549, 0.231373, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="ColorRect" parent="." instance=ExtResource( 8 )]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 0.112
+anchor_top = 0.462
 anchor_right = 0.5
-anchor_bottom = 0.875
+anchor_bottom = 0.462
 margin_left = -200.0
-margin_top = 192.32
+margin_top = 0.320007
 margin_right = 200.0
-margin_bottom = -6.10352e-05
+margin_bottom = 296.32
 size_flags_horizontal = 4
 size_flags_vertical = 4
 custom_constants/separation = 5
@@ -86,9 +87,9 @@ __meta__ = {
 }
 
 [node name="LevelSelect" type="Control" parent="VBoxContainer"]
-margin_top = 46.0
+margin_top = 47.0
 margin_right = 400.0
-margin_bottom = 110.0
+margin_bottom = 111.0
 rect_min_size = Vector2( 400, 64 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -110,6 +111,7 @@ __meta__ = {
 "font",
 ]]
 show_behind_parent = true
+material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -120,15 +122,15 @@ texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 3 )
 expand = true
-script = SubResource( 1 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Continue2" type="Control" parent="VBoxContainer"]
-margin_top = 115.0
+margin_top = 116.0
 margin_right = 400.0
-margin_bottom = 179.0
+margin_bottom = 180.0
 rect_min_size = Vector2( 400, 64 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -150,6 +152,7 @@ __meta__ = {
 "font",
 ]]
 show_behind_parent = true
+material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -160,15 +163,15 @@ texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 3 )
 expand = true
-script = SubResource( 2 )
+script = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit2" type="Control" parent="VBoxContainer"]
-margin_top = 184.0
+margin_top = 185.0
 margin_right = 400.0
-margin_bottom = 248.0
+margin_bottom = 249.0
 rect_min_size = Vector2( 400, 64 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,6 +193,7 @@ __meta__ = {
 "font",
 ]]
 show_behind_parent = true
+material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -200,7 +204,7 @@ texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 3 )
 expand = true
-script = SubResource( 3 )
+script = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -214,7 +218,7 @@ margin_right = 400.0
 margin_bottom = 180.0
 custom_fonts/font = ExtResource( 1 )
 text = "Continue"
-script = SubResource( 4 )
+script = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -228,7 +232,7 @@ margin_right = 400.0
 margin_bottom = 203.0
 custom_fonts/font = ExtResource( 1 )
 text = "Quit"
-script = SubResource( 5 )
+script = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -242,7 +246,7 @@ margin_right = 400.0
 margin_bottom = 223.0
 custom_fonts/font = ExtResource( 1 )
 text = "Wipe Data"
-script = SubResource( 6 )
+script = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -273,9 +277,10 @@ anchor_top = 0.437
 anchor_right = 0.5
 anchor_bottom = 0.437
 margin_left = -264.0
-margin_top = -249.68
+margin_top = -255.68
 margin_right = 264.0
-margin_bottom = -0.679993
+margin_bottom = -6.67999
+focus_mode = 2
 texture = ExtResource( 4 )
 stretch_mode = 6
 __meta__ = {
