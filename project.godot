@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "NPEntity",
+"class": "Barrel",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Misc/Barrel.gd"
+}, {
 "base": "ChessEntity",
 "class": "Bishop",
 "language": "GDScript",
@@ -24,20 +29,40 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Entities/Entity.gd"
 }, {
-"base": "Area2D",
+"base": "EventMechanicBase",
 "class": "EventButton",
 "language": "GDScript",
-"path": "res://Scripts/Entities/EventButton.gd"
+"path": "res://Scripts/Mechanics/EventMechanics/EventButton.gd"
+}, {
+"base": "EventMechanicBase",
+"class": "EventButtonHold",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/EventMechanics/EventButtonHold.gd"
+}, {
+"base": "EventMechanicBase",
+"class": "EventLever",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/EventMechanics/EventLever.gd"
+}, {
+"base": "EventMechanicBase",
+"class": "EventLight",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/EventMechanics/EventLight.gd"
+}, {
+"base": "Area2D",
+"class": "EventMechanicBase",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/EventMechanics/EventMechanicBase.gd"
 }, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 }, {
-"base": "Area2D",
+"base": "EventMechanicBase",
 "class": "Goal",
 "language": "GDScript",
-"path": "res://Scripts/Level/Mechanics/Goal.gd"
+"path": "res://Scripts/Mechanics/EventMechanics/EventGoal.gd"
 }, {
 "base": "ChessEntity",
 "class": "King",
@@ -88,12 +113,27 @@ _global_script_classes=[ {
 "class": "Swipe",
 "language": "GDScript",
 "path": "res://Scripts/Touch/Swipe.gd"
+}, {
+"base": "Node",
+"class": "TriggerTree",
+"language": "GDScript",
+"path": "res://Scripts/Misc/TriggerTree.gd"
+}, {
+"base": "Node",
+"class": "UIResizer",
+"language": "GDScript",
+"path": "res://Scripts/Level/FontResizer.gd"
 } ]
 _global_script_class_icons={
+"Barrel": "",
 "Bishop": "",
 "ChessEntity": "",
 "Entity": "",
 "EventButton": "",
+"EventButtonHold": "",
+"EventLever": "",
+"EventLight": "",
+"EventMechanicBase": "",
 "GitAPI": "",
 "Goal": "",
 "King": "",
@@ -105,7 +145,9 @@ _global_script_class_icons={
 "PlayerCamera": "",
 "Queen": "",
 "Rook": "",
-"Swipe": ""
+"Swipe": "",
+"TriggerTree": "",
+"UIResizer": ""
 }
 
 [application]
@@ -120,12 +162,15 @@ GameEvents="*res://Scripts/Misc/GameEvents.gd"
 LoadSave="*res://Scripts/Misc/LoadSave.gd"
 LevelNames="*res://Scripts/Misc/LevelNames.gd"
 GameGlobals="*res://Scripts/Misc/GameGlobals.gd"
+AspectAdjust="*res://Scripts/Misc/AspectAdjust.gd"
 
 [display]
 
 window/size/width=640
 window/size/height=640
+window/dpi/allow_hidpi=true
 window/handheld/orientation="sensor"
+window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
 [editor_plugins]

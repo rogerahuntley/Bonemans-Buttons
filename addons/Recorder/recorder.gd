@@ -6,7 +6,7 @@ const RECORD_KEY = KEY_R # Change this to the key you want to start/stop recordi
 const SAVE_KEY = KEY_S # Change this to the key you want to save the frames recorded.
 
 # Export variables!
-export(float) var frames_per_second = 15.0
+export(float) var frames_per_second = 60.0
 export(String) var output_folder = "out"
 export(bool) var flip_y = true
 export(bool) var use_thread = false # so the game wont freeze while the frames are being saved

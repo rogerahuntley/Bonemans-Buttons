@@ -9,4 +9,5 @@ func plan_update():
 	pass
 
 func update():
+	move()
 	pass

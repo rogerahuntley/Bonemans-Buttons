@@ -6,6 +6,8 @@ onready var tilemap_node = $TileMap as TileMap
 onready var entities_node = $Entities as Node
 onready var player_node = $Entities/Player
 
+var trigger_states = {}
+
 enum TileType {
 	Empty,
 	Environment,
@@ -18,6 +20,8 @@ var collidable_tiles = [0]
 
 func _ready():
 	GameEvents.connect("player_moved", self, "move_entities")
+	GameEvents.connect("event_triggered", self, "on_event_triggered")
+	GameGlobals.level_node = self
 	set_entities()
 	set_camera()
 
@@ -26,9 +30,12 @@ func _process(_e):
 	get_tree().call_group("NPEntity", "plan_update")
 	get_tree().call_group("Player", "update")
 
+func on_event_triggered(trigger_name, trigger_state):
+	trigger_states[trigger_name] = trigger_state
+	print(trigger_states)
+
 func move_entities():
 	get_tree().call_group("NPEntity", "update")
-	
 
 func set_entities():
 	for entity in entities_node.get_children():
@@ -36,7 +43,7 @@ func set_entities():
 	pass
 
 func set_camera():
-	player_node.camera_node.set_camera(get_rect())
+	player_node.camera_node.map_rect = get_rect()
 
 func get_rect():
 	return tilemap_node.get_used_rect()

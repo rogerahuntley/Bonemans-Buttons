@@ -8,9 +8,6 @@ var can_move = true
 
 var directions_stack = []
 
-func _ready():
-	set_speed()
-
 func check_keys():
 	if Input.is_action_just_pressed("ui_up"):
 		directions_stack.push_back(Direction.Up)
@@ -63,12 +60,17 @@ func plan_update():
 func update():
 	if move():
 		can_move = false
-		tween_node.interpolate_callback(self, 1.3, "done_moving")
+		GameGlobals.tween_node.interpolate_callback(self, 1.3, "done_moving")
+		GameGlobals.tween_node.interpolate_callback(self, 1, "done_signal")
+		
 
 func done_moving():
-	GameEvents.emit_signal("player_moved")
 	can_move = true
+
+func done_signal():
+	GameEvents.emit_signal("player_moved")
 
 func die():
 	GameEvents.emit_signal("player_killed")
+	print(self)
 	sprite_node.queue_free()

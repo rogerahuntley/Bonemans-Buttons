@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/1bit.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Entities/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventGoal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Entities/Misc/Barrel.tscn" type="PackedScene" id=5]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 65536, 1, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 1, 0, 65541, 0, 0, 65542, 1, 0, 131072, 1, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 1, 0, 196608, 1, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 1, 0, 262144, 1, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 1, 0, 327680, 1, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 1, 0, 327685, 0, 0, 327686, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 0, 0, 393222, 1, 0 )
+
+[node name="Mechanics" type="Node" parent="."]
+
+[node name="Goal" parent="Mechanics" instance=ExtResource( 4 )]
+position = Vector2( 88, 88 )
+level_name = "w2l1"
+
+[node name="Entities" type="Node" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 40, 40 )
+
+[node name="Barrel" parent="Entities" instance=ExtResource( 5 )]
+position = Vector2( 72, 56 )
+
+[node name="Barrel2" parent="Entities" instance=ExtResource( 5 )]
+position = Vector2( 72, 72 )
+
+[node name="Barrel3" parent="Entities" instance=ExtResource( 5 )]
+position = Vector2( 72, 40 )
