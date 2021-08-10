@@ -31,9 +31,11 @@ position = Vector2( 40, 88 )
 
 [node name="EventButton3" parent="Mechanics" instance=ExtResource( 6 )]
 position = Vector2( 40, 120 )
+trigger_id = 3
 
 [node name="EventButton2" parent="Mechanics" instance=ExtResource( 6 )]
 position = Vector2( 120, 136 )
+trigger_id = 2
 
 [node name="Entities" type="Node" parent="."]
 
@@ -42,6 +44,8 @@ position = Vector2( 40, 56 )
 
 [node name="Pawn" parent="Entities" instance=ExtResource( 5 )]
 position = Vector2( 56, 24 )
+activate_trigger = 1
+deactivate_trigger = 2
 
 [node name="Pawn4" parent="Entities" instance=ExtResource( 5 )]
 position = Vector2( 72, 168 )
@@ -50,6 +54,10 @@ current_direction = 0
 [node name="Pawn3" parent="Entities" instance=ExtResource( 5 )]
 position = Vector2( 72, 72 )
 current_direction = 1
+activate_trigger = 3
+deactivate_trigger = 2
 
 [node name="Pawn2" parent="Entities" instance=ExtResource( 5 )]
 position = Vector2( 120, 40 )
+activate_trigger = 1
+deactivate_trigger = 1
