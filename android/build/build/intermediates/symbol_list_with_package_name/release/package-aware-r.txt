@@ -1,4 +1,4 @@
-dog.steal.ratinthevents
+dog.steal.bonemansbuttons
 attr alpha
 attr coordinatorLayoutStyle
 attr font

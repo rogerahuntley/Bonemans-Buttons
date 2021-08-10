@@ -7,13 +7,12 @@
         android:normalScreens="true"
         android:largeScreens="true"
         android:xlargeScreens="true" />
-    <uses-feature android:glEsVersion="0x00030000" android:required="true" />
     <instrumentation
         tools:node="replace"
         android:name=".GodotInstrumentation"
         android:icon="@mipmap/icon"
         android:label="@string/godot_project_name_string"
-        android:targetPackage="dog.steal.ratinthevents" />
+        android:targetPackage="dog.steal.bonemansbuttons" />
     <application android:label="@string/godot_project_name_string"
         android:allowBackup="false" tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:requestLegacyExternalStorage"         android:requestLegacyExternalStorage="false"
