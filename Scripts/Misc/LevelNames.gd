@@ -26,7 +26,7 @@ export (Dictionary) var level_map = {
 	"w1l8": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level8.tscn",		"name": "Level 8"},
 	"w1l9": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level9.tscn",		"name": "Level 9"},
 	
-	"w2l1": { "group": "Challenge", "path": "res://Levels/World2 - Barrel Spots/Level1.tscn", "name": "World EXTREME" },
-	"w2l2": { "group": "Challenge", "path": "res://Levels/World2 - Barrel Spots/Level2.tscn", "name": "Holy Heck"},
-	"w2l3": { "group": "Challenge", "path": "res://Levels/World2 - Barrel Spots/Level3.tscn", "name": "Holy Heck 2"},
+	"w2l1": { "group": "Challenge", "path": "res://Levels/Challenge/Level1.tscn", "name": "World EXTREME" },
+	"w2l2": { "group": "Challenge", "path": "res://Levels/Challenge/Level2.tscn", "name": "Holy Heck"},
+	"w2l3": { "group": "Challenge", "path": "res://Levels/Challenge/Level3.tscn", "name": "Holy Heck 2"},
 }
