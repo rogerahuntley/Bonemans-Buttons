@@ -32,11 +32,9 @@ position = Vector2( 40, 88 )
 
 [node name="EventButton3" parent="Mechanics" instance=ExtResource( 6 )]
 position = Vector2( 40, 120 )
-trigger_id = 3
 
 [node name="EventButton2" parent="Mechanics" instance=ExtResource( 6 )]
 position = Vector2( 120, 136 )
-trigger_id = 2
 
 [node name="Entities" type="Node" parent="."]
 

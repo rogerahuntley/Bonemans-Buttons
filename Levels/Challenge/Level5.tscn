@@ -24,8 +24,6 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 [node name="TriggerTree" parent="." instance=ExtResource( 5 )]
 input_triggers = [ "button_require_1", "button_require_2" ]
 output_trigger_name = "pawn_activate_1"
-output_trigger_state = true
-output_trigger_requirement = 1
 
 [node name="Mechanics" type="Node" parent="."]
 
