@@ -5,10 +5,14 @@ class_name EventButtonHold
 export(bool) var trigger_hold_value = true
 
 func on_area_entered(entity: Entity):
+	.on_area_entered(entity)
 	set_active(true)
 
 func on_area_exited(entity: Entity):
-	set_active(false)
+	.on_area_exited(entity)
+	print(entity_array)
+	if entity_array.size() == 0:
+		set_active(false)
 
 func event_triggered_on():
 	if trigger_name != "":

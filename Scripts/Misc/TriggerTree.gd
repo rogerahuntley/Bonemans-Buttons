@@ -5,7 +5,7 @@ class_name TriggerTree
 export(Array, String) var input_triggers = []
 
 export(String) var output_trigger_name
-export(bool) var output_trigger_state
+export(bool) var output_trigger_state = true
 
 var trigger_states = {} setget ,get_trigger_states
 
@@ -20,7 +20,7 @@ enum REQUIRED {
 	IF_SOME	
 }
 
-export(REQUIRED) var output_trigger_requirement
+export(REQUIRED) var output_trigger_requirement = REQUIRED.IF_ALL
 export(int) var if_some_amount = 1
 
 var sent = false
