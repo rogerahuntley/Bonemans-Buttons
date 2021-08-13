@@ -1,3 +1,4 @@
+tool
 extends Node
 
 func get_level_metadata(level_name):
