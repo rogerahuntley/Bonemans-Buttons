@@ -12,8 +12,6 @@ export(bool) var output_state_hold = true
 var trigger_states = {} setget ,get_trigger_states
 
 func get_trigger_states():
-	print(GameGlobals.level_node is Level)
-	print(GameGlobals.level_node)
 	return GameGlobals.level_node.trigger_states
 
 enum REQUIRED {
@@ -44,7 +42,6 @@ func check_triggers():
 		REQUIRED.IF_ALL:
 			print(self.trigger_states)
 			for trigger in input_triggers:
-				print(trigger)
 				if !self.trigger_states.has(trigger) || self.trigger_states[trigger] == false:
 					return send_trigger(false)
 			return send_trigger(true)

@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Entities/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventGoal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/1bit.tres" type="TileSet" id=5]
+[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventLight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventButtonHold.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventLever.tscn" type="PackedScene" id=8]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 2 )
+level_id = "w1l6"
+level_name = "Buttons 102"
+to_level = "w1l7"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1, 3, 2, 2, 3, 3, 3, 3, 3, 4, 3, 3, 5, 3, 3, 6, 3, 3, 7, 3, 3, 8, 3, 5, 9, 3, 5, 65536, 3, 2, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 3, 5, 65545, 3, 0, 65546, 3, 0, 131072, 3, 3, 131073, 1, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 3, 0, 131082, 3, 1, 196608, 3, 3, 196609, 1, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 3, 0, 196618, 3, 1, 262144, 3, 3, 262145, 1, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 3, 0, 262154, 3, 1, 327680, 3, 3, 327681, 1, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 3, 0, 327690, 3, 1, 393216, 3, 3, 393217, 1, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 3, 0, 393226, 3, 1, 458752, 3, 3, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 3, 3, 458761, 3, 0, 458762, 3, 0, 524289, 3, 2, 524290, 3, 2, 524291, 3, 2, 524292, 3, 2, 524293, 3, 2, 524294, 3, 2, 524295, 3, 2, 524296, 3, 4, 524297, 3, 4 )
+
+[node name="Non-collision" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65537, 4, 0, 65538, 4, 1, 65539, 4, 1, 65540, 4, 1, 65541, 4, 1, 65542, 4, 1, 65543, 4, 1, 65544, 4, 1, 65545, 4, 2, 131073, 4, 65536, 131074, 4, 65537, 131075, 4, 65537, 131076, 4, 65537, 131077, 4, 65537, 131078, 4, 65537, 131079, 4, 65537, 131080, 4, 65537, 131081, 4, 65538, 196609, 4, 65536, 196610, 4, 65537, 196611, 4, 65537, 196612, 4, 65537, 196613, 4, 65537, 196614, 4, 65537, 196615, 4, 65537, 196616, 4, 65537, 196617, 4, 65538, 262145, 4, 65536, 262146, 4, 65537, 262147, 4, 65537, 262148, 4, 65537, 262149, 4, 65537, 262150, 4, 65537, 262151, 4, 65537, 262152, 4, 65537, 262153, 4, 65538, 327681, 4, 65536, 327682, 4, 65537, 327683, 4, 65537, 327684, 4, 65537, 327685, 4, 65537, 327686, 4, 65537, 327687, 4, 65537, 327688, 4, 65537, 327689, 4, 65538, 393217, 4, 65536, 393218, 4, 65537, 393219, 4, 65537, 393220, 4, 65537, 393221, 4, 65537, 393222, 4, 65537, 393223, 4, 65537, 393224, 4, 65537, 393225, 4, 65538, 458753, 4, 131072, 458754, 4, 131073, 458755, 4, 131073, 458756, 4, 131073, 458757, 4, 131073, 458758, 4, 131073, 458759, 4, 131073, 458760, 4, 131073, 458761, 4, 131074 )
+
+[node name="Mechanics" type="Node2D" parent="."]
+
+[node name="Goal" parent="Mechanics" instance=ExtResource( 4 )]
+position = Vector2( 56, 88 )
+active = false
+trigger_name = "lever"
+
+[node name="EventButton" parent="Mechanics/Goal" instance=ExtResource( 1 )]
+position = Vector2( 48, -32 )
+trigger_name = "button"
+
+[node name="EventButtonHold" parent="Mechanics/Goal/EventButton" instance=ExtResource( 7 )]
+position = Vector2( 0, 16 )
+trigger_name = "buttonhold"
+
+[node name="EventLever" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 8 )]
+position = Vector2( 0, 16 )
+trigger_name = "lever"
+
+[node name="EventLight" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
+position = Vector2( 16, -16 )
+trigger_name = "button"
+
+[node name="EventLight2" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
+position = Vector2( 16, 0 )
+trigger_name = "buttonhold"
+
+[node name="EventLight3" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
+position = Vector2( 16, 16 )
+trigger_name = "lever"
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 56, 56 )

@@ -4,7 +4,7 @@ class_name Entity
 
 onready var sprite_node = $Sprite as AnimatedSprite
 
-onready var current_level: Level = GameGlobals.level_node setget set_level
+onready var current_level setget ,get_current_level
 
 var direction = null
 
@@ -41,6 +41,9 @@ onready var current_tile = get_tile_pos() setget set_current_tile
 
 func _init():
 	GameEvents.connect("event_triggered", self, "on_event_triggered")
+
+func _ready():
+	self.current_level.update_entity_position(self, get_tile_pos())
 
 func on_event_triggered(trigger_name, trigger_state):
 	pass
@@ -92,10 +95,8 @@ func move_to(target_position):
 
 ### setters / getters ###
 
-func set_level(level):
-	current_level = level
-	current_level.update_entity_position(self, get_tile_pos())
-	pass
+func get_current_level():
+	return GameGlobals.level_node
 
 func set_current_tile(target_tile):
 	current_tile = target_tile

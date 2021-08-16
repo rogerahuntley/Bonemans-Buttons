@@ -109,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/UI/LevelLabel.gd"
 }, {
+"base": "Resource",
+"class": "LevelMap",
+"language": "GDScript",
+"path": "res://Scripts/Resources/LevelMap.gd"
+}, {
 "base": "Entity",
 "class": "NPEntity",
 "language": "GDScript",
@@ -175,6 +180,7 @@ _global_script_class_icons={
 "LevelGrid": "",
 "LevelGridItem": "",
 "LevelLabel": "",
+"LevelMap": "",
 "NPEntity": "",
 "Pawn": "",
 "Player": "",
@@ -194,11 +200,11 @@ config/icon="res://Assets/Custom/icon/icon.png"
 
 [autoload]
 
+LevelNames="*res://Scripts/Misc/LevelNames.gd"
 GameEvents="*res://Scripts/Misc/GameEvents.gd"
 LoadSave="*res://Scripts/Misc/LoadSave.gd"
 GameGlobals="*res://Scripts/Misc/GameGlobals.gd"
 AspectAdjust="*res://Scripts/Misc/AspectAdjust.gd"
-LevelNames="*res://Scripts/Misc/LevelNames.gd"
 FakeMouse="*res://Nodes/FakeMouse.tscn"
 
 [display]

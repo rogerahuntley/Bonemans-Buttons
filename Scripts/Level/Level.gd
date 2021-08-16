@@ -26,11 +26,13 @@ var entity_map = {}
 
 var collidable_tiles = [0]
 
+func _init():
+	GameGlobals.level_node = self
+
 func _ready():
 	check_for_level_handler()
 	GameEvents.connect("player_moved", self, "move_entities")
 	GameEvents.connect("event_triggered", self, "on_event_triggered")
-	GameGlobals.level_node = self
 	set_entities()
 	set_camera()
 	set_goal()

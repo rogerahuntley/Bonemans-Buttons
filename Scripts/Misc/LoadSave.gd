@@ -3,8 +3,7 @@ extends Node
 
 var default_save_data_dict  = {
 	"level": "w1l1",
-	"completed": ["w1l1"],
-	"level_map": {}
+	"completed": ["w1l1"]
 }
 
 var save_data_dict = default_save_data_dict.duplicate() setget set_save_data
