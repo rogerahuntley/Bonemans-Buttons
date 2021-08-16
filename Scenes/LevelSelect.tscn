@@ -1,20 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Fonts/Logo.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Nodes/UI/VBoxPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/UI/LevelGrid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Level/LevelSelect.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Fonts/Main_Button.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Nodes/UI/BackgroundRect.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/UI/LevelBar.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Nodes/UI/CloudButton.tscn" type="PackedScene" id=11]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends TextureButton
-
-signal show_groups
-
-func _pressed():
-	emit_signal(\"show_groups\")
-"
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -23,6 +14,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+level_grid = NodePath("LevelGrid")
 
 [node name="ColorRect" parent="." instance=ExtResource( 5 )]
 
@@ -44,80 +36,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Worlds" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxPanel" parent="Worlds" instance=ExtResource( 2 )]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = -50.0
-margin_bottom = 50.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Worlds/VBoxPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_constants/separation = 5
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Levels" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LevelLabel" type="Label" parent="Levels"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -320.0
-margin_top = 136.0
-margin_right = 320.0
-margin_bottom = 182.0
-custom_fonts/font = ExtResource( 4 )
-text = "World 1"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxPanel" parent="Levels" instance=ExtResource( 2 )]
-anchor_top = 0.375
-anchor_bottom = 0.5
-margin_top = -1.52588e-05
-margin_bottom = 106.0
-
-[node name="VBoxContainer" type="GridContainer" parent="Levels/VBoxPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Back" parent="Levels" instance=ExtResource( 11 )]
-anchor_left = 0.5
-anchor_top = 0.937
-anchor_right = 0.5
-anchor_bottom = 0.975
-margin_left = -100.0
-margin_top = -120.68
-margin_right = 100.0
-margin_bottom = -73.0
-text = "Back"
-button_script = SubResource( 1 )
+[node name="LevelBar" parent="." instance=ExtResource( 10 )]
 
 [node name="CloudButton" parent="." instance=ExtResource( 11 )]
 anchor_left = 0.5
@@ -128,3 +47,11 @@ margin_left = -164.0
 margin_top = -73.0
 margin_right = 164.0
 margin_bottom = -11.0
+
+[node name="LevelGrid" parent="." instance=ExtResource( 2 )]
+anchor_top = 0.0
+anchor_bottom = 1.0
+margin_left = -242.121
+margin_top = 178.172
+margin_right = 238.879
+margin_bottom = -188.828

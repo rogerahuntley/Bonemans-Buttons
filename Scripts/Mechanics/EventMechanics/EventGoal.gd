@@ -27,6 +27,7 @@ func check_player():
 		change_level(entity)
 
 func change_level(entity):
+	GameEvents.emit_signal("level_completed", level_name)
 	if entity is Player:
 		GameGlobals.tween_node.interpolate_callback(self, 1, "change_level_callback")
 		GameGlobals.tween_node.start()

@@ -4,6 +4,13 @@ extends Node
 func get_level_metadata(level_name):
 	return level_map[level_name]
 
+func get_group_by_id(group_id):
+	var group_name = get_group_name(group_id)
+	return get_group(group_name)
+
+func get_group_name(group_id):
+	return level_groups[group_id]
+
 func get_group(group_name):
 	var group_array = []
 	for level in level_map:
@@ -11,23 +18,24 @@ func get_group(group_name):
 			group_array.append(level)
 	return group_array
 
-export(Array, String) var level_groups = [
+enum Levels {
+	World1,
+	World2,
+	World3,
+	World4,
+	World5,
+	Challenge
+}
+
+const level_groups = [
 	"World 1",
+	"World 2",
+	"World 3",
+	"World 4",
+	"World 5",
 	"Challenge"
 ]
 
-export (Dictionary) var level_map = {
+const level_map = {
 	"w1l1": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level1.tscn",		"name": "Level 1"},
-	"w1l2": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level2.tscn",		"name": "Level 2"},
-	"w1l3": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level3.tscn",		"name": "Level 3"},
-	"w1l4": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level4.tscn",		"name": "Level 4"},
-	"w1l5": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level5.tscn",		"name": "Level 5"},
-	"w1l6": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level6.tscn",		"name": "Level 6"},
-	"w1l7": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level7.tscn",		"name": "Level 7"},
-	"w1l8": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level8.tscn",		"name": "Level 8"},
-	"w1l9": { "group": "World 1", "path": "res://Levels/World1 - Barrels/Level9.tscn",		"name": "Level 9"},
-	
-	"w2l1": { "group": "Challenge", "path": "res://Levels/Challenge/Level1.tscn", "name": "World EXTREME" },
-	"w2l2": { "group": "Challenge", "path": "res://Levels/Challenge/Level2.tscn", "name": "Holy Heck"},
-	"w2l3": { "group": "Challenge", "path": "res://Levels/Challenge/Level3.tscn", "name": "Holy Heck 2"},
 }

@@ -42,12 +42,12 @@ anchor_top = 0.462
 anchor_right = 0.537
 anchor_bottom = 0.462
 margin_left = -143.68
-margin_top = 0.320007
+margin_top = 30.32
 margin_right = 144.32
-margin_bottom = 304.32
+margin_bottom = 284.32
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_constants/separation = 15
+custom_constants/separation = 0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,28 +55,29 @@ __meta__ = {
 
 [node name="LevelSelect" parent="VBoxContainer" instance=ExtResource( 9 )]
 margin_right = 336.0
-margin_bottom = 91.0
+margin_bottom = 84.0
 text = "Level Select"
 button_script = ExtResource( 1 )
 
 [node name="Continue" parent="VBoxContainer" instance=ExtResource( 9 )]
-margin_top = 106.0
+margin_top = 84.0
 margin_right = 336.0
-margin_bottom = 197.0
+margin_bottom = 169.0
 text = "Continue"
 button_script = ExtResource( 11 )
 
 [node name="Quit" parent="VBoxContainer" instance=ExtResource( 9 )]
-margin_top = 212.0
+margin_top = 169.0
 margin_right = 336.0
-margin_bottom = 304.0
+margin_bottom = 254.0
 text = "Quit"
 button_script = ExtResource( 10 )
 
 [node name="Wipe" parent="VBoxContainer" instance=ExtResource( 9 )]
 visible = false
-margin_top = 231.0
-margin_bottom = 304.0
+margin_top = 192.0
+margin_right = 336.0
+margin_bottom = 256.0
 text = "Wipe"
 button_script = ExtResource( 12 )
 
@@ -125,7 +126,7 @@ margin_left = 24.6165
 margin_top = -36.5094
 margin_right = 248.617
 margin_bottom = -15.5094
-rect_rotation = -16.7129
+rect_rotation = -21.1119
 rect_pivot_offset = Vector2( 82.876, 10.2119 )
 custom_fonts/font = SubResource( 1 )
 text = "New levels coming soon!"

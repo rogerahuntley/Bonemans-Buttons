@@ -23,6 +23,8 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+button = NodePath("Button")
+label = NodePath("Label")
 text = "Main Menu"
 button_script = ExtResource( 7 )
 

@@ -1,27 +1,27 @@
+tool
 extends Node
 
-var default_save_data_dict = {
-	"level": "w1l1"
+var default_save_data_dict  = {
+	"level": "w1l1",
+	"completed": ["w1l1"]
 }
 
-var save_data_dict = default_save_data_dict
-
+var save_data_dict = default_save_data_dict.duplicate() setget set_save_data
 var save_path = "user://save_data.save"
 
 func _ready():
 	load_from_file()
-	pass
+
+func set_save_data(value):
+	save_data_dict = value
+	save_to_file()
 
 func save_data(name, value):
 	save_data_dict[name] = value
 	save_to_file()
 
 func load_data(name):
-	if save_data_dict == {}:
-		load_from_file()
-	
 	if save_data_dict.has(name):
-		print(name)
 		return save_data_dict.get(name)
 	else:
 		push_error("value: " + name + " not found in save data")
@@ -39,19 +39,13 @@ func load_from_file():
 	var tempData = file.get_var()
 	file.close()
 	if tempData:
-		save_data_dict = tempData
-	else:
-		save_data_dict = default_save_data_dict
-		save_to_file()
+		for data in tempData:
+			save_data_dict[data] = tempData[data]
 
 func set_default_save_data():
-	save_data_dict = default_save_data_dict
+	save_data_dict = default_save_data_dict.duplicate()
 
 func wipe_save_data():
 	set_default_save_data()
-	print(save_data_dict)
 	save_to_file()
-	print(save_data_dict)
 	load_from_file()
-	print(save_data_dict)
-	print(":s " + GameGlobals.level)

@@ -1,6 +1,7 @@
 extends Node
 
 signal level_changed(level_name)
+signal level_completed(level_name)
 signal level_reset()
 signal event_triggered(event_code, event_state)
 signal menu_opened(menu_name)

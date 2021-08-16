@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Entities/Chess/Bishop.gd"
 }, {
+"base": "Control",
+"class": "Check",
+"language": "GDScript",
+"path": "res://Scripts/UI/Check.gd"
+}, {
 "base": "NPEntity",
 "class": "ChessEntity",
 "language": "GDScript",
@@ -84,6 +89,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Level/Level.gd"
 }, {
+"base": "Control",
+"class": "LevelBar",
+"language": "GDScript",
+"path": "res://Scripts/UI/LevelBar.gd"
+}, {
+"base": "Control",
+"class": "LevelGrid",
+"language": "GDScript",
+"path": "res://Scripts/UI/LevelGrid.gd"
+}, {
+"base": "Control",
+"class": "LevelGridItem",
+"language": "GDScript",
+"path": "res://Scripts/UI/LevelGridItem.gd"
+}, {
+"base": "Control",
+"class": "LevelLabel",
+"language": "GDScript",
+"path": "res://Scripts/UI/LevelLabel.gd"
+}, {
 "base": "Entity",
 "class": "NPEntity",
 "language": "GDScript",
@@ -122,7 +147,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "TriggerTree",
 "language": "GDScript",
-"path": "res://Scripts/Misc/TriggerTree.gd"
+"path": "res://Scripts/Mechanics/TriggerTree.gd"
 }, {
 "base": "Node",
 "class": "UIResizer",
@@ -132,6 +157,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Barrel": "",
 "Bishop": "",
+"Check": "",
 "ChessEntity": "",
 "Entity": "",
 "EventButton": "",
@@ -145,6 +171,10 @@ _global_script_class_icons={
 "King": "",
 "Knight": "",
 "Level": "",
+"LevelBar": "",
+"LevelGrid": "",
+"LevelGridItem": "",
+"LevelLabel": "",
 "NPEntity": "",
 "Pawn": "",
 "Player": "",
@@ -166,9 +196,11 @@ config/icon="res://Assets/Custom/icon/icon.png"
 
 GameEvents="*res://Scripts/Misc/GameEvents.gd"
 LoadSave="*res://Scripts/Misc/LoadSave.gd"
-LevelNames="*res://Scripts/Misc/LevelNames.gd"
 GameGlobals="*res://Scripts/Misc/GameGlobals.gd"
 AspectAdjust="*res://Scripts/Misc/AspectAdjust.gd"
+LevelNames="*res://Scripts/Misc/LevelNames.gd"
+Recorder="*res://addons/Recorder/recorder.gd"
+FakeMouse="*res://Nodes/FakeMouse.tscn"
 
 [display]
 
@@ -176,6 +208,8 @@ window/size/width=640
 window/size/height=640
 window/dpi/allow_hidpi=true
 window/handheld/orientation="sensor"
+mouse_cursor/custom_image="res://Assets/Custom/mouse.png"
+mouse_cursor/custom_image_hotspot=Vector2( 10, 10 )
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
