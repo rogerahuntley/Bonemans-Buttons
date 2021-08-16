@@ -8,8 +8,6 @@ var map_rect: Rect2 setget set_map_rect
 var map_size: Vector2
 var scaled_map_size: Vector2 setget ,get_scaled_map_size
 
-var window_constraints: Vector2 setget ,get_window_constraints
-
 var desired: Vector2 setget ,get_desired
 var actual: Vector2 setget ,get_actual
 var tile_size: int setget ,get_tile_size
@@ -61,10 +59,10 @@ func set_limits(value):
 	if value is Rect2:
 		limits = value
 	elif value is Vector2:
-		limits.position.x = map_rect.position.x
 		limits.position.y = map_rect.position.y
-		limits.size.x = map_rect.position.x + value.x
+		limits.position.x = map_rect.position.x + 1
 		limits.size.y = map_rect.position.y + value.y
+		limits.size.x = map_rect.position.x + value.x
 	
 	limit_top = limits.position.y
 	limit_left = limits.position.x
@@ -73,10 +71,6 @@ func set_limits(value):
 
 func get_scaled_map_size():
 	return map_size * scale_factor
-
-func get_window_constraints():
-	var return_rect = Rect2(0, 0, 0, 0)
-	return return_rect
 
 func get_desired():
 	return AspectAdjust.desired

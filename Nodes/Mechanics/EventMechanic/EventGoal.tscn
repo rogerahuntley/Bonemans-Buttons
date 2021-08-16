@@ -27,7 +27,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 0, 0 )
 
-[node name="Goal" type="Area2D"]
+[node name="Goal" type="Area2D" groups=[
+"goal",
+]]
 collision_layer = 2
 script = ExtResource( 2 )
 __meta__ = {
@@ -37,7 +39,8 @@ active = true
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
-animation = "off"
+animation = "on"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )

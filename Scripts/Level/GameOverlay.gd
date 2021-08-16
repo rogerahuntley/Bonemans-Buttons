@@ -19,7 +19,6 @@ func on_menu_closed(menu_name):
 
 func on_level_reset(_l = null):
 	for menu in menu_map:
-		print(menu)
 		on_menu_closed(menu)
 
 func check_nodepath(menu_name):

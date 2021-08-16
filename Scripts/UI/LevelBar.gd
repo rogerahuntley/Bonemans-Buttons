@@ -43,13 +43,11 @@ func move_all(current_group_id):
 		level_label.move(current_group_id)
 
 func left_pressed():
-	print("left")
 	if current_group > 0:
 		current_group -= 1
 	emit_signal("group_changed", current_group)
 
 func right_pressed():
-	print("right")
 	if current_group < level_labels.size() - 1:
 		current_group += 1
 	emit_signal("group_changed", current_group)

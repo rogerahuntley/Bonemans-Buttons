@@ -1,8 +1,9 @@
+tool
 extends EventMechanicBase
 
 class_name Goal
 
-export var level_name: String
+export(String) var level_id = "" setget set_level_id
 
 func _ready():
 	GameEvents.connect("event_triggered", self, "on_event_triggered")
@@ -27,15 +28,20 @@ func check_player():
 		change_level(entity)
 
 func change_level(entity):
-	GameEvents.emit_signal("level_completed", level_name)
+	GameEvents.emit_signal("level_completed", level_id)
 	if entity is Player:
 		GameGlobals.tween_node.interpolate_callback(self, 1, "change_level_callback")
 		GameGlobals.tween_node.start()
 
 func change_level_callback():
-	GameEvents.emit_signal("level_changed", level_name)
+	GameEvents.emit_signal("level_changed", level_id)
 
 func set_active(is_active):
 	active = is_active
 	
 	set_appearance(is_active)
+
+##### setters / getters #####
+
+func set_level_id(value):
+	level_id = value

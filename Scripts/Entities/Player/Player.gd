@@ -72,5 +72,4 @@ func done_signal():
 
 func die():
 	GameEvents.emit_signal("player_killed")
-	print(self)
 	sprite_node.queue_free()

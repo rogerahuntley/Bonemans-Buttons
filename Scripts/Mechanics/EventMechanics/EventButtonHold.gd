@@ -10,7 +10,6 @@ func on_area_entered(entity: Entity):
 
 func on_area_exited(entity: Entity):
 	.on_area_exited(entity)
-	print(entity_array)
 	if entity_array.size() == 0:
 		set_active(false)
 

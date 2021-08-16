@@ -21,5 +21,4 @@ func show_group(value):
 		current_group = value
 	_level_grid = get_node_or_null(level_grid)
 	if _level_grid:
-		print(value)
 		_level_grid.group_id = value

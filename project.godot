@@ -199,7 +199,6 @@ LoadSave="*res://Scripts/Misc/LoadSave.gd"
 GameGlobals="*res://Scripts/Misc/GameGlobals.gd"
 AspectAdjust="*res://Scripts/Misc/AspectAdjust.gd"
 LevelNames="*res://Scripts/Misc/LevelNames.gd"
-Recorder="*res://addons/Recorder/recorder.gd"
 FakeMouse="*res://Nodes/FakeMouse.tscn"
 
 [display]

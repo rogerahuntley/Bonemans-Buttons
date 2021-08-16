@@ -5,6 +5,9 @@ var current_level = null
 onready var map_node = $Map as Node
 onready var tween_node = $Tween as Tween
 
+func _init():
+	GameGlobals.level_handler = self
+
 func _ready():
 	GameEvents.connect("level_changed", self, "on_level_changed")
 	GameEvents.connect("level_completed", self, "on_level_completed")
