@@ -4,7 +4,7 @@ class_name Entity
 
 onready var sprite_node = $Sprite as AnimatedSprite
 
-onready var current_level setget ,get_current_level
+onready var current_level: Level setget ,get_current_level
 
 var direction = null
 

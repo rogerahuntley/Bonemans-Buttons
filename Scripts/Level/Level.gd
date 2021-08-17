@@ -6,6 +6,7 @@ export(String) var level_id = "w1l1"
 export(LevelNames.Levels) var group_id = LevelNames.Levels.World1
 export(String) var level_name = "placeholder name"
 export(String) var to_level = "w1l1"
+export(bool) var last_level = false
 
 onready var tilemap_node = $TileMap as TileMap
 onready var entities_node = $Entities as Node
@@ -33,9 +34,9 @@ func _ready():
 	check_for_level_handler()
 	GameEvents.connect("player_moved", self, "move_entities")
 	GameEvents.connect("event_triggered", self, "on_event_triggered")
+	GameEvents.connect("level_completed", self, "on_level_completed")
 	set_entities()
 	set_camera()
-	set_goal()
 
 func _process(_e):
 	get_tree().call_group("Player", "plan_update")
@@ -53,15 +54,27 @@ func set_entities():
 		entity.current_level = self
 	pass
 
+func unlock_level(level_id):
+	LoadSave.load_data("unlocked").append(level_id)
+	
 func set_camera():
 	player_node.camera_node.map_rect = get_rect()
 
-func set_goal():
-	var goals = get_tree().call_group("goal", "set_level_id", to_level)
+func on_level_completed(level_id):
+	unlock_level(to_level)
+	if last_level:
+		GameGlobals.event_tween(self, "to_menu")	
+	else:
+		GameGlobals.event_tween(self, "change_level")
+
+func change_level():
+	GameEvents.emit_signal("level_changed", to_level)
+
+func to_menu():
+	GameEvents.launch_level_select()
 
 func get_rect():
 	return tilemap_node.get_used_rect()
-	#return Rect2(tilemap_node.position.x, tilemap_node.position.y, tilemap_node.get_used_rect() GameGlobals.tile_size)
 
 func check_collision_at(position):
 	var tile_type = get_tile_type_at(position)

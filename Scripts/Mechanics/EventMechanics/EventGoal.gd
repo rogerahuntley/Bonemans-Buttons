@@ -4,6 +4,7 @@ extends EventMechanicBase
 class_name Goal
 
 export(String) var level_id = "" setget set_level_id
+var is_last_level: bool = false setget set_is_last_level
 
 func _ready():
 	GameEvents.connect("event_triggered", self, "on_event_triggered")
@@ -28,13 +29,8 @@ func check_player():
 		change_level(entity)
 
 func change_level(entity):
-	GameEvents.emit_signal("level_completed", level_id)
 	if entity is Player:
-		GameGlobals.tween_node.interpolate_callback(self, 1, "change_level_callback")
-		GameGlobals.tween_node.start()
-
-func change_level_callback():
-	GameEvents.emit_signal("level_changed", level_id)
+		GameEvents.emit_signal("level_completed", level_id)
 
 func set_active(is_active):
 	active = is_active
@@ -45,3 +41,6 @@ func set_active(is_active):
 
 func set_level_id(value):
 	level_id = value
+
+func set_is_last_level(value):
+	is_last_level = value

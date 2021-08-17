@@ -8,46 +8,56 @@ level_map = {
 "w1l1": {
 "group": 0,
 "name": "Small Beginnings",
-"path": "res://Levels/World1 - Basics/Level1.tscn"
+"path": "res://Levels/World 1 - Basics/Level1.tscn"
 },
 "w1l2": {
 "group": 0,
 "name": "Smallish Beginnings",
-"path": "res://Levels/World1 - Basics/Level2.tscn"
+"path": "res://Levels/World 1 - Basics/Level2.tscn"
 },
 "w1l3": {
 "group": 0,
 "name": "Beginnings",
-"path": "res://Levels/World1 - Basics/Level3.tscn"
+"path": "res://Levels/World 1 - Basics/Level3.tscn"
 },
 "w1l4": {
 "group": 0,
 "name": "Boneman's The Wall",
-"path": "res://Levels/World1 - Basics/Level4.tscn"
+"path": "res://Levels/World 1 - Basics/Level4.tscn"
 },
 "w1l5": {
 "group": 0,
-"name": "Buttons 101",
-"path": "res://Levels/World1 - Basics/Level5.tscn"
+"name": "Boneman's The Wall The Game",
+"path": "res://Levels/World 1 - Basics/Level5.tscn"
 },
 "w1l6": {
 "group": 0,
-"name": "Buttons 102",
-"path": "res://Levels/World1 - Basics/Level6.tscn"
+"name": "Trapped in the Hallway",
+"path": "res://Levels/World 1 - Basics/Level6.tscn"
 },
 "w1l7": {
 "group": 0,
-"name": "Buttons 103",
-"path": "res://Levels/World1 - Basics/Level7.tscn"
+"name": "2 Much Stuff",
+"path": "res://Levels/World 1 - Basics/Level7.tscn"
 },
 "w1l8": {
 "group": 0,
-"name": "Buttons 111",
-"path": "res://Levels/World1 - Basics/Level8.tscn"
+"name": "Hallways 4 Days",
+"path": "res://Levels/World 1 - Basics/Level8.tscn"
 },
-"wcl1": {
-"group": 5,
-"name": "Hard AF",
-"path": "res://Levels/Challenge/3Level1.tscn"
+"w1l9": {
+"group": 0,
+"name": "Congestion",
+"path": "res://Levels/World 1 - Basics/Level9.tscn"
+},
+"w2l1": {
+"group": 1,
+"name": "Buttons 101",
+"path": "res://Levels/World 2 - Buttons/Level1.tscn"
+},
+"w2l2": {
+"group": 1,
+"name": "Buttons 102",
+"path": "res://Levels/World 2 - Buttons/Level3.tscn"
 }
 }

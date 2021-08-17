@@ -1,19 +1,19 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Entities/Misc/Piston.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Level/Level.gd" type="Script" id=2]
 [ext_resource path="res://Nodes/Entities/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/Mechanics/EventMechanic/EventGoal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/1bit.tres" type="TileSet" id=5]
-[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventLight.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventButtonHold.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Nodes/Mechanics/EventMechanic/EventLever.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/Entities/Misc/Barrel.tscn" type="PackedScene" id=6]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
-level_id = "w1l6"
+level_id = "w2l2"
+group_id = 1
 level_name = "Buttons 102"
-to_level = "w1l7"
+to_level = "w2l2"
+last_level = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
@@ -30,35 +30,18 @@ tile_data = PoolIntArray( 65537, 4, 0, 65538, 4, 1, 65539, 4, 1, 65540, 4, 1, 65
 [node name="Mechanics" type="Node2D" parent="."]
 
 [node name="Goal" parent="Mechanics" instance=ExtResource( 4 )]
-position = Vector2( 56, 88 )
+position = Vector2( 136, 104 )
 active = false
-trigger_name = "lever"
-
-[node name="EventButton" parent="Mechanics/Goal" instance=ExtResource( 1 )]
-position = Vector2( 48, -32 )
-trigger_name = "button"
-
-[node name="EventButtonHold" parent="Mechanics/Goal/EventButton" instance=ExtResource( 7 )]
-position = Vector2( 0, 16 )
-trigger_name = "buttonhold"
-
-[node name="EventLever" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 8 )]
-position = Vector2( 0, 16 )
-trigger_name = "lever"
-
-[node name="EventLight" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
-position = Vector2( 16, -16 )
-trigger_name = "button"
-
-[node name="EventLight2" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
-position = Vector2( 16, 0 )
-trigger_name = "buttonhold"
-
-[node name="EventLight3" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
-position = Vector2( 16, 16 )
 trigger_name = "lever"
 
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 56, 56 )
+position = Vector2( 40, 40 )
+
+[node name="Piston" parent="Entities" instance=ExtResource( 1 )]
+position = Vector2( 88, 40 )
+facing = 2
+
+[node name="Barrel" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 88, 56 )

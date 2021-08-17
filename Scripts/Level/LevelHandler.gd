@@ -7,12 +7,12 @@ onready var tween_node = $Tween as Tween
 
 func _init():
 	GameGlobals.level_handler = self
-
-func _ready():
 	GameEvents.connect("level_changed", self, "on_level_changed")
 	GameEvents.connect("level_completed", self, "on_level_completed")
 	GameEvents.connect("level_reset", self, "on_level_reset")
 	GameEvents.connect("player_killed", self, "on_player_killed")
+
+func _ready():
 	load_level(GameGlobals.level)
 
 func on_player_killed():
@@ -25,8 +25,8 @@ func on_level_changed(level_name):
 
 func on_level_completed(level_name):
 	var completed = LoadSave.load_data("completed") as Array
-	if !completed.has(level_name):
-		completed.append(level_name)
+	if !completed.has(GameGlobals.level):
+		completed.append(GameGlobals.level)
 
 func on_level_reset():
 	on_level_changed(GameGlobals.level)

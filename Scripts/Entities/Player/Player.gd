@@ -62,7 +62,6 @@ func update():
 		can_move = false
 		GameGlobals.tween_node.interpolate_callback(self, 1.3, "done_moving")
 		GameGlobals.tween_node.interpolate_callback(self, 1, "done_signal")
-		
 
 func done_moving():
 	can_move = true

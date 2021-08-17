@@ -11,9 +11,10 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
-level_id = "w1l7"
-level_name = "Buttons 103"
-to_level = "w1l8"
+level_id = "w2l2"
+group_id = 1
+level_name = "Buttons 102"
+to_level = "w2l3"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
@@ -34,28 +35,28 @@ position = Vector2( 56, 88 )
 active = false
 trigger_name = "lever"
 
-[node name="EventButton" parent="Mechanics/Goal" instance=ExtResource( 1 )]
-position = Vector2( 48, -32 )
+[node name="EventButton" parent="Mechanics" instance=ExtResource( 1 )]
+position = Vector2( 104, 56 )
 trigger_name = "button"
 
-[node name="EventButtonHold" parent="Mechanics/Goal/EventButton" instance=ExtResource( 7 )]
-position = Vector2( 0, 16 )
+[node name="EventButtonHold" parent="Mechanics" instance=ExtResource( 7 )]
+position = Vector2( 104, 72 )
 trigger_name = "buttonhold"
 
-[node name="EventLever" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 8 )]
-position = Vector2( 0, 16 )
+[node name="EventLever" parent="Mechanics" instance=ExtResource( 8 )]
+position = Vector2( 104, 88 )
 trigger_name = "lever"
 
-[node name="EventLight" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
-position = Vector2( 16, -16 )
+[node name="EventLight" parent="Mechanics" instance=ExtResource( 6 )]
+position = Vector2( 120, 56 )
 trigger_name = "button"
 
-[node name="EventLight2" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
-position = Vector2( 16, 0 )
+[node name="EventLight2" parent="Mechanics" instance=ExtResource( 6 )]
+position = Vector2( 120, 72 )
 trigger_name = "buttonhold"
 
-[node name="EventLight3" parent="Mechanics/Goal/EventButton/EventButtonHold" instance=ExtResource( 6 )]
-position = Vector2( 16, 16 )
+[node name="EventLight3" parent="Mechanics" instance=ExtResource( 6 )]
+position = Vector2( 120, 88 )
 trigger_name = "lever"
 
 [node name="Entities" type="Node2D" parent="."]
