@@ -17,6 +17,10 @@ enum Direction {
 	Left
 }
 
+func _process(delta):
+	if get_tree().paused:
+		swipe_start = null
+
 func _input(event):
 	if event is InputEventScreenTouch:
 		if event.pressed:

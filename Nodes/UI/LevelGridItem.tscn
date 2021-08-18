@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Custom/level background.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/UI/LevelGridItem.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/UI/Check.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Fonts/LevelGridItem.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/shaders/outline.shader" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/outline_width = 1.0
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[node name="LevelGridItem" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -525.0
+margin_bottom = -508.0
+rect_min_size = Vector2( 115, 132 )
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+check = NodePath("Check")
+level_name_label = NodePath("LevelName")
+button = NodePath("Button")
+level_id = "w1l1"
+level_name = "Level 1"
+level_completed = true
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.5997
+margin_top = -78.951
+margin_right = 238.4
+margin_bottom = 241.049
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Check" parent="." instance=ExtResource( 3 )]
+margin_left = -5.74769
+margin_top = 28.5299
+margin_right = 27.9964
+margin_bottom = 70.5299
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+checked = true
+
+[node name="LevelName" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.5
+margin_top = -54.0
+margin_right = 44.5
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.231373, 0.168627, 0.168627, 1 )
+text = "Level 1"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="ToolButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.5
+margin_top = -66.3969
+margin_right = 57.5
+margin_bottom = 65.6031
+focus_mode = 0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

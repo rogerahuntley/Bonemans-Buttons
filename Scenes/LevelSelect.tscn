@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Fonts/Logo.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Nodes/UI/LevelGrid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Level/LevelSelect.gd" type="Script" id=3]
+[ext_resource path="res://Nodes/UI/BackgroundRect.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/UI/LevelBar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Nodes/UI/CloudButton.tscn" type="PackedScene" id=11]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -10,35 +14,44 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-vbox_node = NodePath("CenterContainer/VBoxContainer/VBoxContainer")
+level_grid = NodePath("LevelGrid")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ColorRect" parent="." instance=ExtResource( 5 )]
+
+[node name="Logo" type="Label" parent="." groups=[
+"font",
+]]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -200.0
+margin_top = 32.0
+margin_right = 200.0
+margin_bottom = 157.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level Select"
+align = 1
+valign = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 59.0
-margin_top = 235.0
-margin_right = 421.0
-margin_bottom = 405.0
-custom_constants/separation = 45
+[node name="LevelBar" parent="." instance=ExtResource( 10 )]
 
-[node name="Logo" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 362.0
-margin_bottom = 125.0
-custom_fonts/font = ExtResource( 1 )
-text = "Level Select
-(temporary)"
-align = 1
+[node name="CloudButton" parent="." instance=ExtResource( 11 )]
+anchor_left = 0.5
+anchor_top = 0.975
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -164.0
+margin_top = -73.0
+margin_right = 164.0
+margin_bottom = -11.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_left = 181.0
-margin_top = 170.0
-margin_right = 181.0
-margin_bottom = 170.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/separation = 15
+[node name="LevelGrid" parent="." instance=ExtResource( 2 )]
+anchor_top = 0.0
+anchor_bottom = 1.0
+margin_left = -242.121
+margin_top = 178.172
+margin_right = 238.879
+margin_bottom = -188.828

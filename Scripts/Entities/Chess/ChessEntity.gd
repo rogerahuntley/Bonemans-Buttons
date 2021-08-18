@@ -5,8 +5,8 @@ class_name ChessEntity
 export(Entity.Direction) var current_direction
 
 export(bool) onready var active setget set_active
-export(int, 0, 99) var activate_trigger = 0
-export(int, 0, 99) var deactivate_trigger = 0
+export(String) var activate_trigger = ""
+var targeted = false
 
 var target_entity
 
@@ -17,28 +17,28 @@ func plan_update():
 	target_tile = null
 	if active:
 		target_entity = check_attack()
-		if target_entity is Player:
-			pass
-		else:
-			plan_move()
+		plan_move()
 
 func update():
-	if active:
+	if active && targeted == false:
 		if !target_entity:
 			move()
 		else:
+			if target_entity && "targeted" in target_entity:
+				target_entity.targeted = true
 			attack_target(target_entity)
 			target_entity = null
+	targeted = false
 
 func plan_move():
 	if DirectionVector.has(current_direction):
 		plan_move_in_direction(DirectionVector[current_direction])
 
-func on_event_triggered(trigger_id):
-	if !active && trigger_id == activate_trigger:
-		set_active(true)
-	elif trigger_id == deactivate_trigger:
-		set_active(false)
+func on_event_triggered(trigger_name, trigger_state):
+	if trigger_name == activate_trigger:
+		if trigger_state:
+			set_appearance(trigger_state)
+		GameGlobals.tween_node.interpolate_callback(self, 0, "set_active", trigger_state)
 
 func build_check_spots():
 	var check_spots: Array
@@ -53,22 +53,26 @@ func check_attack():
 			if entity.current_tile == check_spot:
 				return entity
 		for entity in get_tree().get_nodes_in_group("Entity"):
-			if entity.current_tile == check_spot:
-				return entity
+			if !entity.get_groups().has("Pushable"):
+				if entity.current_tile == check_spot:
+					return entity
 
 func attack_target(target: Entity):
 	move_to((target.current_tile + Vector2(.5, .5)) * target.tile_size)
-	target.tween_node.interpolate_callback(target, 1, "die")
-	target.tween_node.start()
+	GameGlobals.tween_node.interpolate_callback(target, 1, "die")
+	GameGlobals.tween_node.start()
 
 ### setters / getters
 
 func set_active(is_active):
 	active = is_active
 	
-	if sprite_node == null:
-		return
-	if active:
+	if sprite_node:
+		set_appearance(is_active)
+
+
+func set_appearance(is_active):
+	if is_active:
 		sprite_node.play("awake")
 	else:
 		sprite_node.play("asleep")

@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "NPEntity",
+"class": "Barrel",
+"language": "GDScript",
+"path": "res://Scripts/Entities/Misc/Barrel.gd"
+}, {
 "base": "ChessEntity",
 "class": "Bishop",
 "language": "GDScript",
 "path": "res://Scripts/Entities/Chess/Bishop.gd"
+}, {
+"base": "Control",
+"class": "Check",
+"language": "GDScript",
+"path": "res://Scripts/UI/Check.gd"
 }, {
 "base": "NPEntity",
 "class": "ChessEntity",
@@ -24,20 +34,40 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Entities/Entity.gd"
 }, {
-"base": "Area2D",
+"base": "EventMechanicBase",
 "class": "EventButton",
 "language": "GDScript",
-"path": "res://Scripts/Entities/EventButton.gd"
+"path": "res://Scripts/Mechanics/EventMechanics/EventButton.gd"
 }, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://git_api.gdns"
+"base": "EventMechanicBase",
+"class": "EventButtonHold",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/EventMechanics/EventButtonHold.gd"
+}, {
+"base": "EventMechanicBase",
+"class": "EventLever",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/EventMechanics/EventLever.gd"
+}, {
+"base": "EventMechanicBase",
+"class": "EventLight",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/EventMechanics/EventLight.gd"
 }, {
 "base": "Area2D",
+"class": "EventMechanicBase",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/EventMechanics/EventMechanicBase.gd"
+}, {
+"base": "EventMechanicBase",
 "class": "Goal",
 "language": "GDScript",
-"path": "res://Scripts/Level/Mechanics/Goal.gd"
+"path": "res://Scripts/Mechanics/EventMechanics/EventGoal.gd"
+}, {
+"base": "Button",
+"class": "GroupSelectButton",
+"language": "GDScript",
+"path": "res://Scripts/UI/GroupSelectButton.gd"
 }, {
 "base": "ChessEntity",
 "class": "King",
@@ -53,6 +83,31 @@ _global_script_classes=[ {
 "class": "Level",
 "language": "GDScript",
 "path": "res://Scripts/Level/Level.gd"
+}, {
+"base": "Control",
+"class": "LevelBar",
+"language": "GDScript",
+"path": "res://Scripts/UI/LevelBar.gd"
+}, {
+"base": "Control",
+"class": "LevelGrid",
+"language": "GDScript",
+"path": "res://Scripts/UI/LevelGrid.gd"
+}, {
+"base": "Control",
+"class": "LevelGridItem",
+"language": "GDScript",
+"path": "res://Scripts/UI/LevelGridItem.gd"
+}, {
+"base": "Control",
+"class": "LevelLabel",
+"language": "GDScript",
+"path": "res://Scripts/UI/LevelLabel.gd"
+}, {
+"base": "Resource",
+"class": "LevelMap",
+"language": "GDScript",
+"path": "res://Scripts/Resources/LevelMap.gd"
 }, {
 "base": "Entity",
 "class": "NPEntity",
@@ -88,44 +143,73 @@ _global_script_classes=[ {
 "class": "Swipe",
 "language": "GDScript",
 "path": "res://Scripts/Touch/Swipe.gd"
+}, {
+"base": "Node",
+"class": "TriggerTree",
+"language": "GDScript",
+"path": "res://Scripts/Mechanics/TriggerTree.gd"
+}, {
+"base": "Node",
+"class": "UIResizer",
+"language": "GDScript",
+"path": "res://Scripts/Level/FontResizer.gd"
 } ]
 _global_script_class_icons={
+"Barrel": "",
 "Bishop": "",
+"Check": "",
 "ChessEntity": "",
 "Entity": "",
 "EventButton": "",
-"GitAPI": "",
+"EventButtonHold": "",
+"EventLever": "",
+"EventLight": "",
+"EventMechanicBase": "",
 "Goal": "",
+"GroupSelectButton": "",
 "King": "",
 "Knight": "",
 "Level": "",
+"LevelBar": "",
+"LevelGrid": "",
+"LevelGridItem": "",
+"LevelLabel": "",
+"LevelMap": "",
 "NPEntity": "",
 "Pawn": "",
 "Player": "",
 "PlayerCamera": "",
 "Queen": "",
 "Rook": "",
-"Swipe": ""
+"Swipe": "",
+"TriggerTree": "",
+"UIResizer": ""
 }
 
 [application]
 
-config/name="Rat in the Vents"
+config/name="Bonemans Buttons"
 run/main_scene="res://Scenes/MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Custom/icon/icon.png"
 
 [autoload]
 
+LevelNames="*res://Scripts/Misc/LevelNames.gd"
 GameEvents="*res://Scripts/Misc/GameEvents.gd"
 LoadSave="*res://Scripts/Misc/LoadSave.gd"
-LevelNames="*res://Scripts/Misc/LevelNames.gd"
 GameGlobals="*res://Scripts/Misc/GameGlobals.gd"
+AspectAdjust="*res://Scripts/Misc/AspectAdjust.gd"
+FakeMouse="*res://Nodes/FakeMouse.tscn"
 
 [display]
 
 window/size/width=640
 window/size/height=640
+window/dpi/allow_hidpi=true
 window/handheld/orientation="sensor"
+mouse_cursor/custom_image="res://Assets/Custom/mouse.png"
+mouse_cursor/custom_image_hotspot=Vector2( 10, 10 )
+window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
 [editor_plugins]
@@ -134,7 +218,7 @@ enabled=PoolStringArray( "res://addons/Recorder/plugin.cfg" )
 
 [gdnative]
 
-singletons=[ "res://git_api.gdnlib" ]
+singletons=[  ]
 
 [global]
 
@@ -162,5 +246,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
+vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"

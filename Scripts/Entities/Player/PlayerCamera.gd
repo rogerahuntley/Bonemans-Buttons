@@ -2,59 +2,81 @@ extends Camera2D
 
 class_name PlayerCamera
 
-var map_rect
-var view_rect
+export(float) var scale_factor = 4
 
-var aspect_ratio: float
-var map_ratio: float
-var max_width: float
-var max_height: float
+var map_rect: Rect2 setget set_map_rect
+var map_size: Vector2
+var scaled_map_size: Vector2 setget ,get_scaled_map_size
 
-var scale_factor = 4
-var scale_start: Vector2
+var desired: Vector2 setget ,get_desired
+var actual: Vector2 setget ,get_actual
+var tile_size: int setget ,get_tile_size
 
-var tile_size = 16
-var tile_count = 45
-var tile_zoom = 4
+var limits: Rect2 setget set_limits
 
 func _ready():
-	get_tree().get_root().connect("size_changed", self, "calculate_zoom")
-	aspect_ratio = OS.window_size.x / OS.window_size.y
-	scale_start = Vector2(OS.window_size.x / scale_factor, OS.window_size.y / scale_factor)
+	AspectAdjust.connect("resized", self, "calculate_zoom")
+	calculate_zoom()
 	current = true
 
-func set_camera(map_rect: Rect2, view_rect = Vector2(9, 16)):
-	self.map_rect = map_rect
-	self.view_rect = view_rect
-	limit_left = map_rect.position.x
-	limit_top = map_rect.position.y
-	limit_right = map_rect.end.x * tile_size
-	limit_bottom = map_rect.end.y * tile_size
-	map_ratio = map_rect.size.x / map_rect.size.y
+func calculate_zoom():
+	# calculate tighter size
+	var big_enough = self.scaled_map_size / self.actual
 	
-	max_width = scale_start.x / (map_rect.size.y * tile_size)
-	max_height = scale_start.y / (map_rect.size.x * tile_size)
+	var bigger_side = big_enough.x if big_enough.x > big_enough.y else big_enough.y
+	if bigger_side > 1:
+		bigger_side = 1
+	
+	# set zoom value
+	var zoom_val = 1.0 / scale_factor * bigger_side
+	if zoom_val != 0:
+		self.zoom = Vector2(zoom_val, zoom_val)
+	
+	# calculate adjusted limits
+	var limit_diffs = Vector2(round(self.actual.x * zoom.x) - limits.size.x, round(self.actual.y * zoom.y) - limits.size.y)
+	
+	if limit_diffs.x >= 1:
+		limit_left = limits.position.x - limit_diffs.x / 2
+		limit_right = limits.end.x + limit_diffs.x / 2
+		limit_top = limits.position.y
+		limit_bottom = limits.end.y
+	
+	if limit_diffs.y >= 1:
+		limit_top = limits.position.y - limit_diffs.y / 2
+		limit_bottom = limits.end.y + limit_diffs.y / 2
+		limit_left = limits.position.x
+		limit_right = limits.end.x
+
+### setters / getters ###
+
+func set_map_rect(map):
+	map_rect = map
+	map_size = map.size * self.tile_size
+	set_limits(map_size)
 	calculate_zoom()
 
-func calculate_zoom():
-	var cur_ratio = OS.window_size.x / OS.window_size.y
-	var w_ratio = OS.window_size.x / OS.window_size.y
-	var h_ratio = OS.window_size.y / OS.window_size.x
-	var x_ratio = scale_start.x / OS.window_size.x
-	var y_ratio = scale_start.y / OS.window_size.y
+func set_limits(value):
+	if value is Rect2:
+		limits = value
+	elif value is Vector2:
+		limits.position.y = map_rect.position.y
+		limits.position.x = map_rect.position.x + 1
+		limits.size.y = map_rect.position.y + value.y
+		limits.size.x = map_rect.position.x + value.x
 	
-	print("cur_ratio: " + str(cur_ratio))
-	print("start: " + str(scale_start))
-	print("width_ratio: " + str(w_ratio))
-	print("height_ratio: " + str(h_ratio))
-	print("max_width: " + str(max_width))
-	print("max_height: " + str(max_height))
-	print("x_ratio: " + str(x_ratio))
-	print("y_ratio: " + str(y_ratio))
-	
-	if w_ratio < max_width || h_ratio < max_height:
-		print("seth")
-		
-	var zoom = x_ratio if cur_ratio < aspect_ratio else y_ratio
-	set_zoom(Vector2(zoom, zoom))
-	pass
+	limit_top = limits.position.y
+	limit_left = limits.position.x
+	limit_bottom = limits.end.y
+	limit_right = limits.end.x
+
+func get_scaled_map_size():
+	return map_size * scale_factor
+
+func get_desired():
+	return AspectAdjust.desired
+
+func get_actual():
+	return AspectAdjust.actual
+
+func get_tile_size():
+	return GameGlobals.tile_size

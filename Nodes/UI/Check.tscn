@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Custom/empty box.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Custom/check.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/UI/Check.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Custom/exe.png" type="Texture" id=4]
+
+[node name="Check" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -18.0
+margin_top = -21.0
+margin_right = 18.0
+margin_bottom = 21.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+check_box = NodePath("CheckBox")
+check_mark = NodePath("CheckMark")
+check_ex = NodePath("CheckEx")
+
+[node name="CheckBox" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckMark" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -19.807
+margin_top = -60.1815
+margin_right = 44.193
+margin_bottom = 19.8185
+texture = ExtResource( 2 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckEx" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.2796
+margin_top = -27.2182
+margin_right = 31.7204
+margin_bottom = 52.7818
+texture = ExtResource( 4 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}

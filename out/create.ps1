@@ -1,1 +1,0 @@
-ffmpeg -r 60 -f image2 -s 640x640 -i %03d.png -vcodec libx264 -pix_fmt yuv420p test.mp4

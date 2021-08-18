@@ -1,13 +1,24 @@
+tool
 extends Control
 
-const button_path = "res://Nodes/UI/LevelSelectButton.tscn"
-var button_node = preload(button_path)
+export(LevelNames.Levels) var current_group = LevelNames.Levels.World1 setget show_group
 
-export(NodePath) onready var vbox_node = get_node(vbox_node) as VBoxContainer
+export(NodePath) var level_grid
+onready var _level_grid = get_node(level_grid) as LevelGrid
+
+const level_button_node = preload("res://Nodes/UI/LevelSelectButton.tscn")
+
+export(NodePath) var level_bar = "LevelBar"
+
+onready var _level_bar = get_node(level_bar)
 
 func _ready():
-	for level in LevelNames.level_map.keys():
-		var button = button_node.instance()
-		vbox_node.add_child(button)
-		button.level_name = level
-		button.text = LevelNames.level_map[level].name
+	_level_bar.connect("group_changed", self, "show_group")
+	show_group(0)
+	
+func show_group(value):
+	if current_group != value:
+		current_group = value
+	_level_grid = get_node_or_null(level_grid)
+	if _level_grid:
+		_level_grid.group_id = value
