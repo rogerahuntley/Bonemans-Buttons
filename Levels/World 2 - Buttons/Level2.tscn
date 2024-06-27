@@ -14,7 +14,8 @@ script = ExtResource( 2 )
 level_id = "w2l2"
 group_id = 1
 level_name = "Buttons 102"
-to_level = "w2l3"
+to_level = "w2l2"
+last_level = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )

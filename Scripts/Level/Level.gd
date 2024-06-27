@@ -6,6 +6,7 @@ export(String) var level_id = "w1l1"
 export(LevelNames.Levels) var group_id = LevelNames.Levels.World1
 export(String) var level_name = "placeholder name"
 export(String) var to_level = "w1l1"
+export(bool) var hidden = false
 export(bool) var last_level = false
 
 onready var tilemap_node = $TileMap as TileMap

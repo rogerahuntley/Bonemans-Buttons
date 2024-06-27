@@ -48,10 +48,12 @@ func build_level_map():
 	for file in files:
 		var file_dict = {}
 		var load_level = load(file).instance()
-		file_dict["path"] = file
-		file_dict["group"] = load_level.group_id
-		file_dict["name"] = load_level.level_name
-		level_map[load_level.level_id] = file_dict
+		var hidden = load_level.hidden
+		if !hidden:
+			file_dict["path"] = file
+			file_dict["group"] = load_level.group_id
+			file_dict["name"] = load_level.level_name
+			level_map[load_level.level_id] = file_dict
 	self.level_map = level_map
 	pass
 

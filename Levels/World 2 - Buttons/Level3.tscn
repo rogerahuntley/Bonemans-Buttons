@@ -13,6 +13,7 @@ level_id = "w2l2"
 group_id = 1
 level_name = "Buttons 102"
 to_level = "w2l2"
+hidden = true
 last_level = true
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -42,7 +42,7 @@ transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="LevelHandler" parent="LevelViewport/Viewport" instance=ExtResource( 1 )]
+[node name="Level" parent="LevelViewport/Viewport" instance=ExtResource( 1 )]
 
 [node name="GameOverlay" parent="." instance=ExtResource( 2 )]
 pause_mode = 2

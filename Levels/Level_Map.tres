@@ -58,6 +58,6 @@ level_map = {
 "w2l2": {
 "group": 1,
 "name": "Buttons 102",
-"path": "res://Levels/World 2 - Buttons/Level3.tscn"
+"path": "res://Levels/World 2 - Buttons/Level2.tscn"
 }
 }
